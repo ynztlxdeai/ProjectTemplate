@@ -4,5 +4,8 @@
 
 其中,封装了toolbar的常规操作
 
-![](Screenshots/home.png)
-![](Screenshots/mine.png)
+主页样式
+![Alt text](Screenshots/home.png)
+
+我的页面
+![Alt text](Screenshots/mine.png)
