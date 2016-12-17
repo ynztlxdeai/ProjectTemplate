@@ -16,7 +16,6 @@ import com.luoxiang.weibo.base.TabInfo;
 import com.luoxiang.weibo.utils.Logger;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class MainActivity
         extends BaseActivity
@@ -63,7 +62,6 @@ public class MainActivity
 
     @Override
     protected void initView() {
-        ButterKnife.bind(this);
     }
 
     @Override

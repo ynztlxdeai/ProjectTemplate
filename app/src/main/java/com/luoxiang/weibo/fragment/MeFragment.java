@@ -2,11 +2,8 @@ package com.luoxiang.weibo.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.luoxiang.weibo.base.BaseFragment;
@@ -20,19 +17,14 @@ import com.luoxiang.weibo.base.BaseFragment;
  * desc:	            TODO
  */
 public class MeFragment extends BaseFragment{
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getLayoutResId() {
+        return 0;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState)
-    {
-
-
+    protected View getLayoutView() {
         // 这行代码是获取到Activity那边传过来的参数 bundle
         Bundle bundle = getArguments();
 
@@ -55,5 +47,10 @@ public class MeFragment extends BaseFragment{
 
 
         return tv;
+    }
+
+    @Override
+    public void finishCreateView(Bundle state) {
+
     }
 }

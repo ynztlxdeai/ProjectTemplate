@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.luoxiang.weibo.R;
 import com.luoxiang.weibo.views.ToolBarX;
 
+import butterknife.ButterKnife;
+
 /**
  * projectName: 	    WeiBo
  * packageName:	        com.luoxiang.weibo.base
@@ -43,7 +45,7 @@ public abstract class BaseActivity
          * toolbar的工具类
          */
         mToolBarX = new ToolBarX(this , mToolbar);
-
+        ButterKnife.bind(this);
 
         initView();
         initData();
