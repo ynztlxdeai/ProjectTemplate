@@ -4,4 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!--动画时间-->
     <integer name="anim_duration">300</integer>
+
+    <dimen name="default_general_margin">10dp</dimen>
+    <dimen name="default_small_text_size">14sp</dimen>
 </resources>

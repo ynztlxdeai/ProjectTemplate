@@ -38,6 +38,7 @@ public class UIUtil {
     public static void init(Application application) {
         mBaseContext = application;
         mHandler = new Handler();
+
     }
     private static Toast toast;
 

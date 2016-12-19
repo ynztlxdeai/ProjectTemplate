@@ -6,7 +6,7 @@ package com.luoxiang.weibo;
  * className:	        Constants
  * author:	            Luoxiang
  * time:	            2016/9/8	9:22
- * desc:	            TODO
+ * desc:	            adb shell monkey -p package  -v 10000
  */
 public interface Constants {
     String APP_KEY      = "531356236";		   // 应用的APP_KEY
