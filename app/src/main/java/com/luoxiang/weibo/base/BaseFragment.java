@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -12,7 +13,11 @@ import android.view.ViewGroup;
 
 import com.luoxiang.weibo.R;
 
+import java.util.List;
+
 import butterknife.ButterKnife;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * projectName: 	    WeiBo
@@ -22,7 +27,10 @@ import butterknife.ButterKnife;
  * time:	            2016/9/7	13:51
  * desc:	            fragment的基类
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements
+                                                    EasyPermissions.PermissionCallbacks{
+
+    private static final int RC_SETTINGS_SCREEN = 200;
 
     private View mParentView;
 
@@ -155,5 +163,33 @@ public abstract class BaseFragment extends Fragment {
         }
         mActivity.startActivityForResult(intent , requestCode);
         mActivity.overridePendingTransition(R.anim.anim_in_right_left, R.anim.anim_out_right_left);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
+        // This will display a dialog directing them to enable the permission in app settings.
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog.Builder(this, getString(R.string.rationale_ask_again))
+                    .setTitle(getString(R.string.title_settings_dialog))
+                    .setPositiveButton(getString(R.string.setting))
+                    .setNegativeButton(getString(R.string.cancel), null /* click listener */)
+                    .setRequestCode(RC_SETTINGS_SCREEN)
+                    .build()
+                    .show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // EasyPermissions handles the request result.
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 }
