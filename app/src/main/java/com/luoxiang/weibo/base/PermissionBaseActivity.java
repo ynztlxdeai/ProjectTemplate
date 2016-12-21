@@ -15,7 +15,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * className:	        PermissionBaseActivity
  * author:	            Luoxiang
  * time:	            2016/12/20	15:04
- * desc:	            TODO
+ * desc:	            权限管理类别的基类
  *
  * svnVersion:	        $Rev
  * upDateAuthor:	    Vincent

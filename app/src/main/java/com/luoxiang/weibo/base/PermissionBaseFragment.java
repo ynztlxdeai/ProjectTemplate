@@ -15,7 +15,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * className:	        PermissionBaseFragment
  * author:	            Luoxiang
  * time:	            2016/12/20	15:07
- * desc:	            TODO
+ * desc:	            权限管理类别的基类
  *
  * svnVersion:	        $Rev
  * upDateAuthor:	    Vincent
@@ -28,7 +28,6 @@ public abstract class PermissionBaseFragment extends BaseFragment  implements
 
 
     protected static final int RC_SETTINGS_SCREEN = 200;
-
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
