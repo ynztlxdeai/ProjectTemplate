@@ -16,11 +16,19 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * Created by hcc on 16/9/18 13:41
- * 100332338@qq.com
- * <p>
- * 沉浸式状态栏工具类
+ * packageName:	    com.luoxiang.weibo.utils
+ * className:	    StatusBarUtil
+ * author:	        Luoxiang
+ * time:	        2016/12/22	15:43
+ * desc:	        沉浸式状态栏工具类
+ *
+ * svnVersion:
+ * upDateAuthor:    Vincent
+ * upDate:          2016/12/22
+ * upDateDesc:      TODO
  */
+
+
 public class StatusBarUtil
 {
 
