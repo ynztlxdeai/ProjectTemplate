@@ -2,6 +2,10 @@ package com.luoxiang.weibo.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+
+import java.io.File;
+
 /**
  * packageName:	    com.luoxiang.weibo.utils
  * className:	    ShareUtil
@@ -34,5 +38,18 @@ public class ShareUtil
         intent.putExtra(Intent.EXTRA_SUBJECT, "分享");
         intent.putExtra(Intent.EXTRA_TEXT,content + url);
         context.startActivity(Intent.createChooser(intent, title));
+    }
+
+    /**
+     *  ".stl", "application/vnd.ms-pkistl"
+     * @param context
+     * @param file
+     */
+    public static void shareFile(Context context , File file , String mime){
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.putExtra(Intent.EXTRA_STREAM,
+                       Uri.fromFile(file));
+        share.setType(mime);//此处可发送多种文件
+        context.startActivity(Intent.createChooser(share, "Share"));
     }
 }
