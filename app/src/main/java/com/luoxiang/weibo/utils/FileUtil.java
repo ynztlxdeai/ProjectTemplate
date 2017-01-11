@@ -1,5 +1,8 @@
 package com.luoxiang.weibo.utils;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import java.io.DataOutputStream;
@@ -23,6 +26,10 @@ import static android.content.ContentValues.TAG;
  */
 
 public class FileUtil {
+    /**
+     * 删除整个目录
+     * @param path 路径
+     */
     public static void deleteAllFilesOfDir(File path) {
         if (!path.exists())
             return;
@@ -34,9 +41,14 @@ public class FileUtil {
         for (int i = 0; i < files.length; i++) {
             deleteAllFilesOfDir(files[i]);
         }
+        //如果不删除文件夹目录 注释即可
         path.delete();
     }
 
+    /**
+     * 命令行模式删除 需要root
+     * @param path 路径
+     */
     public static void delDir(String path){
         String cmd = "rm -r " + path;
         Log.d(TAG, cmd);
@@ -61,5 +73,15 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 挂载文件
+     * @param context 上下文
+     * @param out 文件
+     *            需要权限<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+     */
+    public static void mountFile(Context context , File out){
+        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(out)));
     }
 }
