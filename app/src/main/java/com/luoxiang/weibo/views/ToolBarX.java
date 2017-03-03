@@ -1,6 +1,7 @@
 package com.luoxiang.weibo.views;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -179,5 +180,14 @@ public class ToolBarX {
         return this;
     }
 
+    /**
+     * 设置背景颜色
+     * @param color
+     * @return
+     */
+    public ToolBarX setBackgroundColor(@ColorInt int color) {
+        mToolbar.setBackgroundColor(color);
+        return this;
+    }
 
 }
