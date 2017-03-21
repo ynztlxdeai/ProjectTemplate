@@ -7,6 +7,13 @@ package com.luoxiang.weibo;
  * author:	            Luoxiang
  * time:	            2016/9/8	9:22
  * desc:	            adb shell monkey -p package  -v 10000
+ *
+ * 下面几条是关于水波纹的
+ * android:background="?android:attr/selectableItemBackground"波纹有边界
+ * android:background="?android:attr/selectableItemBackgroundBorderless"波纹超出边界
+ *
+ * android:colorControlHighlight：设置波纹颜色
+ * android:colorAccent：设置checkbox等控件的选中颜色
  */
 public interface Constants {
     String APP_KEY      = "531356236";		   // 应用的APP_KEY

@@ -1,5 +1,6 @@
 package com.luoxiang.weibo.views;
 
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 
 import com.luoxiang.weibo.R;
@@ -187,6 +189,34 @@ public class ToolBarX {
      */
     public ToolBarX setBackgroundColor(@ColorInt int color) {
         mToolbar.setBackgroundColor(color);
+        return this;
+    }
+
+    /**
+     * 获取toolbar的显示矩形
+     * @param outRect 需要返回的left top right bottom
+     * @return 返回本身
+     */
+    public ToolBarX getWindowVisibleDisplayFrame(Rect outRect){
+        mToolbar.getWindowVisibleDisplayFrame(outRect);
+        return this;
+    }
+
+    /**
+     * 获得当前的屏幕高度
+     * @return 返回高度
+     */
+    public int getScreenHeight(){
+        return mToolbar.getRootView().getHeight();
+    }
+
+    /**
+     * 添加一个状态改变viewtree
+     * @param listener 监听器
+     * @return 返回本身
+     */
+    public ToolBarX addOnGlobalLayoutListener(ViewTreeObserver.OnGlobalLayoutListener listener){
+        mToolbar.getViewTreeObserver().addOnGlobalLayoutListener(listener);
         return this;
     }
 

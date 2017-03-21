@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 
@@ -12,6 +12,14 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        //用于lambda表达式
+        jackOptions.enabled = true;
+    }
+
+    //用于lambda表达式
+    compileOptions{
+        sourceCompatibility org.gradle.api.JavaVersion.VERSION_1_8;
+        targetCompatibility org.gradle.api.JavaVersion.VERSION_1_8;
     }
 
     signingConfigs {
@@ -46,4 +54,5 @@ dependencies {
     compile 'pub.devrel:easypermissions:0.2.1'
     compile 'com.android.support:appcompat-v7:24.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
+    compile 'com.android.support:design:25.2.0'
 }
